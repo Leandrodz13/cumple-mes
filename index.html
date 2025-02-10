@@ -29,7 +29,7 @@
 
         .heart {
             position: absolute;
-            font-size: 20px;
+            font-size: 40px;
             color: #ff007f;
             animation: heartAnim 2s infinite;
             pointer-events: none;
@@ -51,7 +51,7 @@
             top: 5%; /* Ajusté la posición del título */
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #ff0066;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -66,8 +66,8 @@
 
         .container {
             position: relative;
-            width: 280px;
-            height: 200px;
+            width: 250px;
+            height: 220px;
             cursor: pointer;
             z-index: 2;
         }
@@ -133,7 +133,7 @@
         }
 
         .carta p {
-            font-size: 6px;
+            font-size: 10px;
             text-align: center;
             color: #444;
             opacity: 0;
@@ -165,19 +165,38 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Estilos para pantallas pequeñas */
         @media (max-width: 600px) {
             .titulo {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             .container {
-                width: 250px;
+                width: 200px;
                 height: 180px;
             }
             .carta {
-                font-size: 11px;
+                font-size: 12px;
+                width: 100%;
+                height: auto;
+                padding: 15px;
+            }
+            .carta p {
+                font-size: 13px;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .titulo {
+                font-size: 1.2rem;
+            }
+            .container {
+                width: 180px;
+                height: 170px;
             }
             .carta p {
                 font-size: 12px;
+                line-height: 1.3;
             }
         }
 
@@ -213,19 +232,3 @@
             </div>
         </div>
     </div>
-
-    <script>
-        let abierto = false;
-        function abrirSobre() {
-            if (!abierto) {
-                document.querySelector('.tapa').style.transform = 'rotateX(-120deg)';
-                setTimeout(() => {
-                    let carta = document.querySelector('.carta');
-                    carta.classList.add('visible');
-                }, 400);
-                abierto = true;
-            }
-        }
-    </script>
-</body>
-</html>
