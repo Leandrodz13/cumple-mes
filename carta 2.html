@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Animada</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #f7c6e3, #ffb3b3); /* Fondo suave con gradiente rosado */
+            background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png'); /* Fondo de textura sutil */
+            background-size: 150px 150px;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            position: relative;
+            color: #5c2d6e;
+        }
+
+        /* Animación de los corazones flotantes */
+        @keyframes heartAnim {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 40px;
+            color: #ff007f;
+            animation: heartAnim 2s infinite;
+            pointer-events: none;
+        }
+
+        /* Corazones flotantes en diferentes posiciones */
+        .heart1 { top: 10%; left: 5%; animation-duration: 2.5s; }
+        .heart2 { top: 50%; left: 20%; animation-duration: 3s; }
+        .heart3 { top: 30%; left: 70%; animation-duration: 3.2s; }
+        .heart4 { top: 60%; left: 85%; animation-duration: 3.5s; }
+        .heart5 { top: 15%; left: 60%; animation-duration: 2.7s; }
+        .heart6 { top: 80%; left: 15%; animation-duration: 2.9s; }
+        .heart7 { top: 40%; left: 85%; animation-duration: 3.1s; }
+        .heart8 { top: 70%; left: 30%; animation-duration: 3.3s; }
+
+        /* Título en el fondo */
+        .titulo {
+            position: absolute;
+            top: 8%; /* Subí un poco el título para que no tape la carta */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff0066;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            width: 320px;
+            height: 220px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .sobre {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff6f61, #ff8a80); /* Color cálido de amor */
+            position: absolute;
+            border-radius: 12px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            border: 3px solid #d84315;
+            background-image: url('https://www.transparenttextures.com/patterns/diagonal-hatch.png'); /* Textura en el sobre */
+            background-size: 20px 20px;
+        }
+        .tapa {
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #ff5252, #ff1744); /* Colores vibrantes para la tapa */
+            position: absolute;
+            top: 0;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            transition: transform 0.6s ease-in-out;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .carta {
+            width: 90%;
+            height: 120%;
+            background: #fff3e0;
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            border-radius: 10px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            transform: translateY(100%) scale(0.8);
+            transition: transform 1s ease-in-out, opacity 0.6s ease-in-out;
+            z-index: 1;
+            opacity: 0;
+            transform-origin: center center;
+        }
+        .carta.visible {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 1;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 60vw;
+            height: 50vh;
+            z-index: 10;
+        }
+        .carta p {
+            font-size: 10px;
+            text-align: center;
+            color: #444;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out 0.4s;
+        }
+        .carta.visible p {
+            opacity: 1;
+        }
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Efecto de brillo */
+        .carta p::before {
+            content: "✨";
+            position: absolute;
+            top: -15px;
+            right: 50%;
+            font-size: 24px;
+            animation: glitter 2s infinite;
+        }
+
+        @keyframes glitter {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Corazones flotantes en varias partes -->
+    <div class="heart heart1">❤️</div>
+    <div class="heart heart2">❤️</div>
+    <div class="heart heart3">❤️</div>
+    <div class="heart heart4">❤️</div>
+    <div class="heart heart5">❤️</div>
+    <div class="heart heart6">❤️</div>
+    <div class="heart heart7">❤️</div>
+    <div class="heart heart8">❤️</div>
+
+    <!-- Título en el fondo -->
+    <div class="titulo">Feliz primer cumplemes amor❤️</div>
+
+    <div class="container" onclick="abrirSobre()">
+        <div class="sobre">
+            <div class="tapa"></div>
+            <div class="carta">
+                <p>💖 Holaa mi vidaa 💖<br><br>
+                Hoy cumplimos nuestro primer mes juntitos 🥳, y aunque tal vez no te lo he dicho lo suficiente, estoy muy pero muy emocionado de poder celebrar nuestra primera fecha especial 🎉.<br><br>
+                Por supuesto, me encantaría poder estar contigo en este momento, diciéndote todo esto con un abrazo fuerte y llenándote de besitos 😘, pero bueno… estamos un poco (poquitito) lejos 💔. Aunque me encanta saber que a pesar de la distancia, estamos construyendo algo increíble, día a día 😘<br><br>
+                Tal vez suene raro, pero nos deseo lo mejor a nosotros dos. Quiero que sigamos adelante, fortaleciendo lo nuestro día a día 💑. También quiero cumplir mi propia meta: enamorarte un poquito más cada día 💘. Espero que con el tiempo sigamos estableciendo metas juntos, que tengamos claro lo que queremos lograr con la compañía del otro y que trabajemos para hacerlo realidad ✨.<br><br>
+                Me encantaría pasar el siguiente mes a tu lado… y todos los que vengan después ❤️. También espero, poco a poco, ganarme el cariño de tu familia. Se siente bien saber que tu mami ya no me odia (tanto) 😂, y me encanta la idea de conocerlos más.<br><br>
+                Tal como te he dicho muchas veces, quiero ser un buen complemento para ti, apoyarte en lo académico y en lo que sea que necesites, tal como tú lo has hecho conmigo 🤗. Eres un pilar fundamental en mi vida, y nunca dejaré de agradecerte por todo lo que haces por mí 🙏.<br><br>
+                Me encanta aprender algo nuevo de ti cada día. Siempre hay algo en ti que me sorprende, y eso me fascina 😍. Es, por supuesto, una de las muchas razones por las que estoy enamoradísimo de ti 💕.<br><br>
+                Espero estar <span class="resaltado">contigo siempre</span>, porque <b>te amo muchísimo</b>, y estoy completamente seguro de que te quiero para <span class="resaltado">mi vida entera</span> 💞.<br>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let abierto = false;
+        function abrirSobre() {
+            if (!abierto) {
+                document.querySelector('.tapa').style.transform = 'rotateX(-120deg)';
+                setTimeout(() => {
+                    let carta = document.querySelector('.carta');
+                    carta.classList.add('visible');
+                }, 400);
+                abierto = true;
+            }
+        }
+    </script>
+</body>
+</html>
