@@ -40,6 +40,37 @@
             100% { opacity: 1; }
         }
 
+        /* Corazones animados de fondo */
+        .corazon {
+            position: absolute;
+            font-size: 2rem;
+            color: red;
+            animation: flotar 5s ease-in-out infinite;
+        }
+
+        .corazon:nth-child(odd) {
+            animation-duration: 4s;
+        }
+
+        .corazon:nth-child(even) {
+            animation-duration: 6s;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+        }
+
         .container {
             position: relative;
             width: 250px;
@@ -109,7 +140,7 @@
         }
 
         .carta p {
-            font-size: 10px;
+            font-size: 14px;
             text-align: center;
             color: #444;
             opacity: 0;
@@ -164,6 +195,13 @@
     </style>
 </head>
 <body>
+    <!-- Corazones flotando -->
+    <div class="corazon" style="top: 10%; left: 10%;">❤️</div>
+    <div class="corazon" style="top: 30%; left: 50%;">💖</div>
+    <div class="corazon" style="top: 70%; left: 80%;">💘</div>
+    <div class="corazon" style="top: 50%; left: 20%;">💞</div>
+    <div class="corazon" style="top: 20%; left: 70%;">💖</div>
+
     <div class="titulo">Feliz primer cumplemes amor❤️</div>
 
     <div class="container" onclick="abrirSobre()">
