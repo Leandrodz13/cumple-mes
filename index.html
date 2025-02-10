@@ -10,8 +10,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to bottom, #f7c6e3, #ffb3b3); /* Fondo suave con gradiente rosado */
-            background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png'); /* Fondo de textura sutil */
+            background: linear-gradient(to bottom, #f7c6e3, #ffb3b3);
+            background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
             background-size: 150px 150px;
             overflow: hidden;
             font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -21,34 +21,10 @@
             text-align: center;
         }
 
-        /* Animación de los corazones flotantes */
-        @keyframes heartAnim {
-            0% { transform: scale(0.5); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 40px;
-            color: #ff007f;
-            animation: heartAnim 2s infinite;
-            pointer-events: none;
-        }
-
-        /* Corazones flotantes en diferentes posiciones */
-        .heart1 { top: 10%; left: 5%; animation-duration: 2.5s; }
-        .heart2 { top: 50%; left: 20%; animation-duration: 3s; }
-        .heart3 { top: 30%; left: 70%; animation-duration: 3.2s; }
-        .heart4 { top: 60%; left: 85%; animation-duration: 3.5s; }
-        .heart5 { top: 15%; left: 60%; animation-duration: 2.7s; }
-        .heart6 { top: 80%; left: 15%; animation-duration: 2.9s; }
-        .heart7 { top: 40%; left: 85%; animation-duration: 3.1s; }
-        .heart8 { top: 70%; left: 30%; animation-duration: 3.3s; }
-
         /* Título en el fondo */
         .titulo {
             position: absolute;
-            top: 5%; /* Ajusté la posición del título */
+            top: 5%;
             left: 50%;
             transform: translateX(-50%);
             font-size: 2rem;
@@ -75,7 +51,7 @@
         .sobre {
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, #ff6f61, #ff8a80); /* Color cálido de amor */
+            background: linear-gradient(to bottom, #ff6f61, #ff8a80);
             position: absolute;
             border-radius: 12px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
@@ -84,14 +60,12 @@
             align-items: flex-end;
             overflow: hidden;
             border: 3px solid #d84315;
-            background-image: url('https://www.transparenttextures.com/patterns/diagonal-hatch.png'); /* Textura en el sobre */
-            background-size: 20px 20px;
         }
 
         .tapa {
             width: 100%;
             height: 50%;
-            background: linear-gradient(to top, #ff5252, #ff1744); /* Colores vibrantes para la tapa */
+            background: linear-gradient(to top, #ff5252, #ff1744);
             position: absolute;
             top: 0;
             clip-path: polygon(0 0, 100% 0, 50% 100%);
@@ -119,6 +93,8 @@
             z-index: 1;
             opacity: 0;
             transform-origin: center center;
+            overflow-y: auto;  /* Hacer que el texto sea desplazable */
+            max-height: 70vh; /* Limitar el alto de la carta */
         }
 
         .carta.visible {
@@ -128,7 +104,7 @@
             top: 50%;
             left: 50%;
             width: 60vw;
-            height: 50vh;
+            height: auto;
             z-index: 10;
         }
 
@@ -147,22 +123,6 @@
         .resaltado {
             color: red;
             font-weight: bold;
-        }
-
-        /* Efecto de brillo */
-        .carta p::before {
-            content: "✨";
-            position: absolute;
-            top: -15px;
-            right: 50%;
-            font-size: 24px;
-            animation: glitter 2s infinite;
-        }
-
-        @keyframes glitter {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(180deg); }
-            100% { transform: rotate(360deg); }
         }
 
         /* Estilos para pantallas pequeñas */
@@ -203,17 +163,6 @@
     </style>
 </head>
 <body>
-    <!-- Corazones flotantes en varias partes -->
-    <div class="heart heart1">❤️</div>
-    <div class="heart heart2">❤️</div>
-    <div class="heart heart3">❤️</div>
-    <div class="heart heart4">❤️</div>
-    <div class="heart heart5">❤️</div>
-    <div class="heart heart6">❤️</div>
-    <div class="heart heart7">❤️</div>
-    <div class="heart heart8">❤️</div>
-
-    <!-- Título en el fondo -->
     <div class="titulo">Feliz primer cumplemes amor❤️</div>
 
     <div class="container" onclick="abrirSobre()">
