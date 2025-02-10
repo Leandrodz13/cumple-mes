@@ -133,7 +133,7 @@
         }
 
         .carta p {
-            font-size: 10px;
+            font-size: 14px;
             text-align: center;
             color: #444;
             opacity: 0;
@@ -232,3 +232,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let abierto = false;
+        function abrirSobre() {
+            if (!abierto) {
+                document.querySelector('.tapa').style.transform = 'rotateX(-120deg)';
+                setTimeout(() => {
+                    let carta = document.querySelector('.carta');
+                    carta.classList.add('visible');
+                }, 400);
+                abierto = true;
+            }
+        }
+    </script>
+</body>
+</html>
