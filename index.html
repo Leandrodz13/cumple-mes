@@ -18,6 +18,7 @@
             margin: 0;
             position: relative;
             color: #5c2d6e;
+            text-align: center;
         }
 
         /* Animación de los corazones flotantes */
@@ -47,10 +48,10 @@
         /* Título en el fondo */
         .titulo {
             position: absolute;
-            top: 8%; /* Subí un poco el título para que no tape la carta */
+            top: 5%; /* Ajusté la posición del título */
             left: 50%;
             transform: translateX(-50%);
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: #ff0066;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -65,11 +66,12 @@
 
         .container {
             position: relative;
-            width: 320px;
-            height: 220px;
+            width: 280px;
+            height: 200px;
             cursor: pointer;
             z-index: 2;
         }
+
         .sobre {
             width: 100%;
             height: 100%;
@@ -85,6 +87,7 @@
             background-image: url('https://www.transparenttextures.com/patterns/diagonal-hatch.png'); /* Textura en el sobre */
             background-size: 20px 20px;
         }
+
         .tapa {
             width: 100%;
             height: 50%;
@@ -96,6 +99,7 @@
             transition: transform 0.6s ease-in-out;
             box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .carta {
             width: 90%;
             height: 120%;
@@ -116,6 +120,7 @@
             opacity: 0;
             transform-origin: center center;
         }
+
         .carta.visible {
             transform: translate(-50%, -50%) scale(1.5);
             opacity: 1;
@@ -126,6 +131,7 @@
             height: 50vh;
             z-index: 10;
         }
+
         .carta p {
             font-size: 10px;
             text-align: center;
@@ -133,9 +139,11 @@
             opacity: 0;
             transition: opacity 0.6s ease-in-out 0.4s;
         }
+
         .carta.visible p {
             opacity: 1;
         }
+
         .resaltado {
             color: red;
             font-weight: bold;
@@ -155,6 +163,22 @@
             0% { transform: rotate(0deg); }
             50% { transform: rotate(180deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            .titulo {
+                font-size: 1.8rem;
+            }
+            .container {
+                width: 250px;
+                height: 180px;
+            }
+            .carta {
+                font-size: 11px;
+            }
+            .carta p {
+                font-size: 12px;
+            }
         }
 
     </style>
