@@ -47,7 +47,7 @@
             font-size: 2rem;
             color: red;
             animation: flotar 5s ease-in-out infinite;
-            z-index: 15; /* Corazones por encima de la carta */
+            z-index: 15; /* Corazones por encima de la carta cuando la tapa está cerrada */
         }
 
         .corazon:nth-child(odd) {
@@ -138,7 +138,7 @@
             left: 50%;
             width: 60vw;
             height: auto;
-            z-index: 10;
+            z-index: 10; /* Carta sobre los corazones */
         }
 
         .carta p {
@@ -231,6 +231,11 @@
                 setTimeout(() => {
                     let carta = document.querySelector('.carta');
                     carta.classList.add('visible');
+                    // Poner los corazones debajo de la carta
+                    let corazones = document.querySelectorAll('.corazon');
+                    corazones.forEach(corazon => {
+                        corazon.style.zIndex = '0';  // Corazones por debajo de la carta
+                    });
                 }, 400);
                 abierto = true;
             }
