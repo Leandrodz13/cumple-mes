@@ -33,6 +33,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
             text-align: center;
             animation: fadeIn 2s ease-out;
+            z-index: 10;
         }
 
         @keyframes fadeIn {
@@ -46,6 +47,7 @@
             font-size: 2rem;
             color: red;
             animation: flotar 5s ease-in-out infinite;
+            z-index: 15; /* Corazones por encima de la carta */
         }
 
         .corazon:nth-child(odd) {
