@@ -193,6 +193,20 @@
             }
         }
 
+        /* Estilo para el emoji de los ojos */
+        .ojos {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 11; /* Asegura que el emoji esté encima de la carta */
+            transition: transform 0.3s ease;
+        }
+
+        .ojos:hover {
+            transform: scale(1.2); /* Efecto al pasar el mouse por encima */
+        }
     </style>
 </head>
 <body>
@@ -218,6 +232,9 @@
                 Me encanta aprender algo nuevo de ti cada día. Siempre hay algo en ti que me sorprende, y eso me fascina 😍. Es, por supuesto, una de las muchas razones por las que estoy enamoradísimo de ti 💕.<br><br>
                 Espero estar <span class="resaltado">contigo siempre</span>, porque <b>te amo muchísimo</b>, y estoy completamente seguro de que te quiero para <span class="resaltado">mi vida entera</span> 💞.<br>
                 </p>
+                
+                <!-- Emoji de los ojos en la esquina inferior derecha -->
+                <div class="ojos" onclick="window.location.href='https://leandrodz13.github.io/quiz4u/'">👀</div>
             </div>
         </div>
     </div>
@@ -233,9 +250,9 @@
                     // Cambiar el z-index de los corazones a 1 cuando la carta se abra
                     let corazones = document.querySelectorAll('.corazon');
                     corazones.forEach(corazon => {
-                        corazon.style.zIndex = '0';  // Corazones por debajo de la carta
+                        corazon.style.zIndex = '1';
                     });
-                }, 400);
+                }, 600);
                 abierto = true;
             }
         }
